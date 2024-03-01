@@ -1,5 +1,6 @@
 package tn.esprit.tic.alinfo4.studyspring.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,6 +30,7 @@ public class Chambre implements Serializable {
 
 
     @ManyToOne
+    @JsonIgnore
     private Bloc bloc;
 
 

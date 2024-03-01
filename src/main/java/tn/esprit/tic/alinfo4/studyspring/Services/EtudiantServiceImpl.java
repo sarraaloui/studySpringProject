@@ -1,12 +1,15 @@
 package tn.esprit.tic.alinfo4.studyspring.Services;
 
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import tn.esprit.tic.alinfo4.studyspring.Entities.Etudiant;
 import tn.esprit.tic.alinfo4.studyspring.Repositories.EtudiantRepository;
 
+import java.time.Month;
 import java.util.List;
 
 @AllArgsConstructor
+@Service
 public class EtudiantServiceImpl implements IEtudiantService {
 
 
@@ -44,6 +47,15 @@ public class EtudiantServiceImpl implements IEtudiantService {
         return etudiantRepository.saveAll(etudiants);
     }
 
+    @Override
+    public List<Etudiant> findAllByNomEtStartsWith(char s) {
+        return etudiantRepository.findAllByNomEtStartsWith(s);
+    }
+
+    @Override
+public List<Etudiant>findAllByEcole(String  ecole){
+        return etudiantRepository.findAllByEcole(ecole);
+    }
 
 
 }

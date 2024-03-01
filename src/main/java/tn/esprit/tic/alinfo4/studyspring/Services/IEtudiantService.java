@@ -6,6 +6,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 import tn.esprit.tic.alinfo4.studyspring.Entities.Etudiant;
 
+import java.time.Month;
 import java.util.List;
 
 @Repository
@@ -18,6 +19,10 @@ public interface IEtudiantService  {
     Etudiant retrieveEtudiant(Long idEtudiant);
     void removeEtudiant(Long idEtudiant);
     List<Etudiant> addEtudiants (List<Etudiant> etudiants);
+
+    List<Etudiant>findAllByNomEtStartsWith(char s);
+    List<Etudiant>findAllByEcole(String  ecole);
+
 
 
 

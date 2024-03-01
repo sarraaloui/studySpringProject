@@ -1,5 +1,6 @@
 package tn.esprit.tic.alinfo4.studyspring.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,10 +28,12 @@ public class Bloc implements Serializable {
 
 
     @ManyToOne
+    @JsonIgnore
     private Foyer foyer;
 
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "bloc")
+
     private Set<Chambre> chambres;
 
 
