@@ -7,9 +7,12 @@ import tn.esprit.tic.alinfo4.studyspring.Entities.Bloc;
 import tn.esprit.tic.alinfo4.studyspring.Entities.Chambre;
 import tn.esprit.tic.alinfo4.studyspring.Entities.Reservation;
 import tn.esprit.tic.alinfo4.studyspring.Entities.TypeChambre;
+import tn.esprit.tic.alinfo4.studyspring.Repositories.BlocRepository;
 import tn.esprit.tic.alinfo4.studyspring.Repositories.ChambreRepository;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @AllArgsConstructor
 @Service
@@ -17,6 +20,7 @@ import java.util.List;
 public class ChambreServiceImpl implements IChambreService{
 
 ChambreRepository chambreRepository;
+    BlocRepository blocRepository;
 
     @Override
     public List<Chambre> retrieveAllChambres() {
@@ -51,6 +55,28 @@ ChambreRepository chambreRepository;
     @Override
     public List<Chambre> findByTypeC(TypeChambre id) {
         return chambreRepository.findByTypeC(id);
+    }
+
+    @Override
+    public Bloc affecterChambresABloc(List<Long> numChambre, String nomBloc) {
+
+        Bloc bloc=blocRepository.findByNomBloc(nomBloc);
+
+        bloc.getChambres().forEach(chambre ->{
+        Chambre chambre1=chambreRepository.findByNumeroChambre(chambre.getNumeroChambre());
+        chambre1.setBloc(bloc);
+        chambreRepository.save(chambre1);
+        }
+
+        );
+
+        return bloc;
+    }
+
+    @Override
+    public long nbChambreParTypeEtBloc(TypeChambre type, Long idBloc) {
+
+        return chambreRepository.nbrChambreByTypeCAAndBloc_IdBloc(idBloc,type);
     }
 
 

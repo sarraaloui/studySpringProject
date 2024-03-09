@@ -54,4 +54,20 @@ public class ChambreController {
     return chambreService.findByTypeC(type);
     }
 
+
+
+    @PutMapping("/affecterChambresABloc/{nom_Bloc}")
+    public Bloc affecterChambresABloc(@PathVariable("nom_Bloc") String nom_Bloc, @RequestBody  List<Long> numeros) {
+        return chambreService.affecterChambresABloc(numeros,nom_Bloc);
+    }
+
+
+
+    @GetMapping("/countbytype/{type}/{idbloc}")
+    public Long countbytype(@PathVariable("type") TypeChambre typeChambre,@PathVariable("idbloc") Long idbloc) {
+        return chambreService.nbChambreParTypeEtBloc(typeChambre,idbloc);
+    }
+
+
+
 }

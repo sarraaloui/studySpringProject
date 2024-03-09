@@ -3,7 +3,9 @@ package tn.esprit.tic.alinfo4.studyspring.Services;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.tic.alinfo4.studyspring.Entities.Bloc;
+import tn.esprit.tic.alinfo4.studyspring.Entities.Chambre;
 import tn.esprit.tic.alinfo4.studyspring.Repositories.BlocRepository;
+import tn.esprit.tic.alinfo4.studyspring.Repositories.ChambreRepository;
 
 import java.util.List;
 
@@ -14,6 +16,7 @@ public class BlocServiceImpl implements  IBlocService{
 
     BlocRepository blocRepository;
 
+    ChambreRepository chambreRepository;
     @Override
     public List<Bloc> retrieveAllBlocs() {
         return  blocRepository.findAll();
@@ -44,4 +47,12 @@ public class BlocServiceImpl implements  IBlocService{
     public List<Bloc> addBlocs(List<Bloc> blocs) {
         return blocRepository.saveAll(blocs);
     }
+
+    @Override
+    public List<Chambre> findAllByNomBloc(String nombloc) {
+       List<Chambre> chambres=chambreRepository.findByBloc_NomBloc(nombloc);
+        return chambres;
+    }
+
+
 }

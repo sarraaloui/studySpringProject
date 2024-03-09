@@ -6,6 +6,7 @@ import tn.esprit.tic.alinfo4.studyspring.Entities.Reservation;
 import tn.esprit.tic.alinfo4.studyspring.Entities.TypeChambre;
 
 import java.util.List;
+import java.util.Set;
 
 public interface IChambreService {
 
@@ -18,6 +19,11 @@ public interface IChambreService {
     void removeChambre(Long idBloc);
     List<Chambre> addChambres (List<Chambre> chambres);
     List<Chambre>findByTypeC(TypeChambre id);
+
+    public Bloc affecterChambresABloc (List<Long> numChambre, String nomBloc) ;
+
+    public long nbChambreParTypeEtBloc ( TypeChambre type, Long idBloc );
+
 
 
 }

@@ -1,6 +1,7 @@
 package tn.esprit.tic.alinfo4.studyspring.Services;
 
 import tn.esprit.tic.alinfo4.studyspring.Entities.Bloc;
+import tn.esprit.tic.alinfo4.studyspring.Entities.Chambre;
 import tn.esprit.tic.alinfo4.studyspring.Entities.Etudiant;
 
 import java.util.List;
@@ -15,5 +16,8 @@ public interface IBlocService {
     Bloc retrieveBloc(Long idBloc);
     void removeBloc(Long idBloc);
     List<Bloc> addBlocs (List<Bloc> blocs);
+
+    List<Chambre>findAllByNomBloc(String nombloc);
+
 
 }

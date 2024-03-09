@@ -24,6 +24,10 @@ public interface IEtudiantService  {
     List<Etudiant>findAllByEcole(String  ecole);
 
 
+    Etudiant affecterEtudiantAReservation(String nomEt , String prenomEt , String idReservation );
+
+
+
 
 
 

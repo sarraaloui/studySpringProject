@@ -20,7 +20,6 @@ import java.util.Set;
 public class Reservation implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idReservation")
     private String idReservation ;
 

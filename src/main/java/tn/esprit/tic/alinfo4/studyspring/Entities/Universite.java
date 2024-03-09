@@ -1,5 +1,6 @@
 package tn.esprit.tic.alinfo4.studyspring.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,7 +23,9 @@ public class Universite implements Serializable {
     private String nomUniversite;
     private String adresse;
 
-    @OneToOne(mappedBy = "universite")
+
+    @OneToOne(mappedBy = "universite",cascade = CascadeType.ALL)
+    @JsonIgnore
     private Foyer foyer;
 
 

@@ -11,4 +11,6 @@ public interface EtudiantRepository extends JpaRepository<Etudiant,Long> {
 
     List<Etudiant>findAllByNomEtStartsWith(char s);
     List<Etudiant>findAllByEcole(String  ecole);
+
+    Etudiant findByNomEtAndPrenomEt(String nom,String prenom);
 }

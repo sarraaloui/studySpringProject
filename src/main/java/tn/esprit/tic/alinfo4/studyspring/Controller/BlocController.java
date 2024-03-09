@@ -4,6 +4,7 @@ package tn.esprit.tic.alinfo4.studyspring.Controller;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.tic.alinfo4.studyspring.Entities.Bloc;
+import tn.esprit.tic.alinfo4.studyspring.Entities.Chambre;
 import tn.esprit.tic.alinfo4.studyspring.Entities.Etudiant;
 import tn.esprit.tic.alinfo4.studyspring.Services.BlocServiceImpl;
 import tn.esprit.tic.alinfo4.studyspring.Services.IBlocService;
@@ -43,6 +44,12 @@ public class BlocController {
     public Bloc updateEtudiant(@RequestBody Bloc e) {
         Bloc bloc= blocService.updateBloc(e);
         return bloc;
+    }
+
+
+    @GetMapping("/retrieveChambre/{nombloc}")
+    public List<Chambre> retrieveChambre(@PathVariable("nombloc") String  nombloc) {
+        return blocService.findAllByNomBloc(nombloc);
     }
 
 

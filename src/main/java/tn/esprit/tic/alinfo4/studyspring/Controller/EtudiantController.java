@@ -55,4 +55,14 @@ public class EtudiantController {
         return etudiantService.findAllByEcole(ecole);
     }
 
+
+
+
+    @PutMapping("/affecterEtudiantAReservation/{nom}/{prenom}/{id}")
+    public Etudiant affecterEtudiantAReservation(@PathVariable("nom") String  nom,@PathVariable("prenom") String  prenom, @PathVariable("id") String  id) {
+      return etudiantService.affecterEtudiantAReservation(nom,prenom,id);
+    }
+
+
 }
+
